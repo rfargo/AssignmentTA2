@@ -34,3 +34,6 @@ Route::get('/item','ItemControl@show');
 Route::put('/item/{id}', 'ItemControl@update');
 
 Route::delete('/item/{id}', 'ItemControl@delete');
+
+
+Route::get('/all', 'UserControl@all');

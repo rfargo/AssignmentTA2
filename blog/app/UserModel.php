@@ -10,4 +10,8 @@ class UserModel extends Model
     protected $table = "users";
     protected $fillable = ['name', 'email', 'password'];
     protected $guarded = [];
+
+    public function items(){
+    	return $this->hasMany('App\ItemModel', 'user_id', 'id');
+    }
 }

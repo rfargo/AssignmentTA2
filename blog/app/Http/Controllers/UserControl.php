@@ -46,9 +46,9 @@ class UserControl extends Controller
 			$this->users->where('id',$id)->update($users);
 			return response ('Updated', 201);
 		}catch(Exception $ex){
-			return response ('Failed', 400);
-		
+			return response ('Failed', 400);	
 	}
+}
 
 	public function delete($id){
 		$users = $this->users->find($id);
@@ -61,4 +61,12 @@ class UserControl extends Controller
 
 	}
 
+	public function all(){
+		try{
+			$users = $this->users->with('items')->get();
+			return $users;
+		}catch(Exception $ex){
+			return respons('Failed', 400);
+		}
+	}
 }
